@@ -1,13 +1,399 @@
-body {
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* html {
+  height: 100vh;
+  width: 100vh;
+} */
+
+html,
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  height: 100vh;
+  width: 100vw;
+  background-color: #252525;
+  color: #dfdfdf;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+/* ! ============================ HOME */
+
+.container {
+  padding: 20px 40px;
+  margin: 0 auto;
+  width: 100%;
+  height: 100%;
+}
+
+.search-ctr {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  padding-bottom: 20px;
+}
+
+.search-input-ctr {
+  background-color: transparent;
+  outline: 1px solid #dfdfdf;
+  width: 50%;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50px;
+}
+
+.search-input-ctr:focus-within {
+  outline: 2px solid #dfdfdf !important;
+}
+
+.search-input-label {
+  font-size: 32px;
+  font-weight: 600;
+  padding-bottom: 10px;
+}
+.search-input {
+  background-color: transparent;
+  padding: 20px;
+  width: 100%;
+  border-radius: 20px 0px 0px 20px;
+  border: none;
+  height: 100%;
+}
+
+.search-input:focus {
+  outline: none;
+}
+
+.search-btn {
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 0px 20px 20px 0px;
+  padding: 5px 10px 5px 2px;
+  height: 100%;
+}
+
+.search-icon {
+  height: 22px;
+  width: 22px;
+}
+
+.result {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.results-ctr {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 40px;
+}
+
+.results {
+  width: 70%;
+  display: flex;
+  overflow-x: scroll;
+  align-items: flex-start;
+  justify-content: flex-start;
+
+  gap: 80px;
+
+  /* align-items: center; */
+  /* justify-content: center; */
+  /* width: 100%;
+  height: 100%; */
+}
+
+.characters-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 80px;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+/* ! ================================= Pagination */
+
+.pagination {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.page-btn-ctr {
+  display: flex;
+  align-items: center;
+  /* gap: 5px; */
+  /* padding: 10px; */
+  outline: 1px solid #dfdfdf;
+  margin: 10px;
+}
+.page-btn {
+  width: 28px;
+  height: 28px;
+  /* padding: 5px; */
+  background-color: transparent;
+  background-color: #dfdfdf;
+  border: none;
+  /* border-radius: 50%; */
+}
+
+.page-btn-active {
+  width: 28px;
+  height: 28px;
+  background-color: transparent;
+  border: none;
+  color: #dfdfdf;
+  /* border-radius: 50%; */
+}
+
+.page-btn:hover {
+  cursor: pointer;
+  /* height: 32px; */
+  /* width: 32px; */
+  background-color: #b9b9b9;
+  transition: all 0.2s ease-in-out;
+}
+
+.current-page-number {
+  font-size: 18px;
+}
+
+.prev-next-btn-ctr {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.arrow-btn {
+  background-color: transparent;
+  border: none;
+  height: 40px;
+  width: 40px;
+}
+
+.arrow-btn:hover {
+  cursor: pointer;
+}
+
+.arrow-btn:disabled {
+  display: none;
+}
+
+.arrow-btn:hover .arrow-btn-img {
+  /* height: 36px; */
+  /* width: 36px; */
+  /* transition: all 0.2s ease-in-out; */
+}
+
+.arrow-btn-img {
+  height: 32px;
+  width: 32px;
+}
+
+/* ! ============================ Character */
+
+.character-card-outer-ctr {
+  background-color: #202124;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.character-card-ctr {
+  /* display: flex; */
+  /* justify-content: center; */
+  /* align-items: center; */
+  /* background-color: rgb(51, 93, 96); */
+  border: 4px solid rgb(51, 93, 96);
+  border-radius: 8px;
+  padding: 20px;
+  height: 600px;
+  width: 900px;
+}
+
+/* #80d32d #74ca2e #5fbe2c #48d02f  */
+
+.character-card {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  /* flex-direction: column; */
+  /* height: 100%; */
+  width: 100%;
+  /* justify-content: space-evenly; */
+  /* height: 550px; */
+  /* width: 850px; */
+  /* background-color: #c3c6ce; */
+  /* background-color: #94e36a; */
+  /* background-color: #9df170; */
+  /* gap: 10px; */
+  /* color: #252525; */
+  color: #c3c6ce;
+}
+
+.character-card-inner-ctr {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.character-card-img-ctr {
+  height: fit-content;
+  /* display: flex; */
+  /* align-items: center; */
+  /* justify-content: center; */
+}
+.character-card-img {
+  /* width: 200px; */
+  /* height: 100%; */
+  border-radius: 8px;
+}
+
+.character-card-details-ctr {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-around;
+  gap: 10px;
+}
+
+.character-card-detail-ctr {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.character-card-detail-label {
+  font-weight: 600;
+  font-size: 24px;
+}
+
+.character-card-name-ctr {
+  padding-bottom: 20px;
+}
+
+.character-card-name {
+  font-size: 40px;
+  font-weight: 700;
+  /* text-decoration: none; */
+}
+
+.character-card-text {
+  font-size: 36px;
+}
+/* .character-card-status {
+}
+.character-card-species {
+}
+.character-card-type {
+}
+.character-card-gender {
+} */
+.character-card-origin-name-text {
+}
+.character-card-origin-link {
+}
+.character-card-location-name-text {
+}
+.character-card-location-link {
+}
+
+.character-card-episodes-outer-ctr {
+  height: 100%;
+  width: 100%;
+}
+
+.character-card-episodes-ctr {
+  height: 75px;
+  width: fit-content;
+  overflow-y: scroll;
+}
+
+.character-card-episodes {
+  display: flex;
+  flex-direction: column;
+}
+.character-card-episode {
+}
+
+/* ! ============================ MINI Character Card */
+
+.mini-character-card-ctr {
+  width: min-content;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  text-decoration: none;
+}
+.mini-character-card-img {
+  width: 190px;
+  height: 190px;
+  /* width: 100px;
+  height: 100px; */
+  /* height: 100%; */
+}
+.mini-character-card-name {
+  text-align: center;
+  color: #dfdfdf;
+  text-decoration: none;
+  font-size: 20px;
+  letter-spacing: 0.8px;
+}
+/* ! ============================ SEARCHED Character Card */
+
+.searched-card-ctr {
+  width: min-content;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+.searached-card-img {
+  width: 280px;
+  height: 280px;
+  /* width: 100px;
+  height: 100px; */
+  /* height: 100%; */
+}
+.searched-card-name {
+  text-align: center;
+  color: #dfdfdf;
+  text-decoration: none;
+  font-size: 20px;
+  letter-spacing: 0.8px;
+}
+
+/* ! ============================ EPISODE PAGE */

@@ -1,0 +1,65 @@
+import { createContext, useEffect, useState } from "react";
+import axios from "axios";
+
+const APIContext = createContext();
+
+export const APIProvider = ({ children }) => {
+  const [characterList, setCharacterList] = useState([]);
+  const [characterListInfo, setCharacterListInfo] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
+  const [pageNumber, setPageNumber] = useState(1);
+  const [pages, setPages] = useState([]);
+
+  const baseURL = "https://rickandmortyapi.com/api/";
+
+  const fetchAllCharacters = async () => {
+    setIsLoading(true);
+    try {
+      const response = await axios.get(
+        baseURL + `character?page=${pageNumber}`
+      );
+      const data = await response.data;
+      setCharacterList(data.results);
+      setCharacterListInfo(data.info);
+      const [, ...result] = Array(data.info.pages + 1).keys();
+      setPages(result);
+      setPageNumber(result[0]);
+      setIsLoading(false);
+    } catch (error) {
+      console.log(error.message);
+      setIsLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    try {
+      fetchAllCharacters();
+    } catch (error) {
+      console.log(error.message);
+    }
+  }, []);
+
+  if (isLoading) {
+    return <div>loading...</div>;
+  }
+
+  return (
+    <APIContext.Provider
+      value={{
+        characterList,
+        setCharacterList,
+        characterListInfo,
+        setCharacterListInfo,
+        pages,
+        setPages,
+        pageNumber,
+        setPageNumber,
+        baseURL
+      }}
+    >
+      {children}
+    </APIContext.Provider>
+  );
+};
+
+export default APIContext;
