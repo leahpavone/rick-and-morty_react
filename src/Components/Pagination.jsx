@@ -8,14 +8,65 @@ function Pagination() {
   const [prevButtonDisabled, setPrevButtonDisabled] = useState(false);
   const [nextButtonDisabled, setNextButtonDisabled] = useState(false);
 
-  const { pageNumber, setPageNumber, pages, setCharacterList, baseURL } =
-    useContext(APIContext);
+  const {
+    pageNumber,
+    setPageNumber,
+    pages,
+    setCharacterList,
+    baseURL,
+    filter
+  } = useContext(APIContext);
 
   const fetchPage = async (buttonValue) => {
-    const response = await axios.get(baseURL + `character?page=${buttonValue}`);
-    const data = await response.data;
-    setPageNumber(buttonValue);
-    setCharacterList(data.results);
+    if (filter === "male") {
+      const response = await axios.get(
+        baseURL + `character?page=${buttonValue}&gender=male`
+      );
+      const data = await response.data;
+      setPageNumber(buttonValue);
+      setCharacterList(data.results);
+      console.log(data);
+    } else if (filter === "female") {
+      const response = await axios.get(
+        baseURL + `character?page=${buttonValue}&gender=female`
+      );
+      const data = await response.data;
+      setPageNumber(buttonValue);
+      setCharacterList(data.results);
+      console.log(data);
+    } else if (filter === "genderless") {
+      const response = await axios.get(
+        baseURL + `character?page=${buttonValue}&gender=genderless`
+      );
+      const data = await response.data;
+      setPageNumber(buttonValue);
+      setCharacterList(data.results);
+      console.log(data);
+    } else if (filter === "alive") {
+      const response = await axios.get(
+        baseURL + `character?page=${buttonValue}&status=alive`
+      );
+      const data = await response.data;
+      setPageNumber(buttonValue);
+      setCharacterList(data.results);
+      console.log(data);
+    } else if (filter === "dead") {
+      const response = await axios.get(
+        baseURL + `character?page=${buttonValue}&status=dead`
+      );
+      const data = await response.data;
+      setPageNumber(buttonValue);
+      setCharacterList(data.results);
+      console.log(data);
+    } else {
+      const response = await axios.get(
+        baseURL + `character?page=${buttonValue}`
+      );
+      const data = await response.data;
+      setPageNumber(buttonValue);
+      setCharacterList(data.results);
+      console.log(data);
+    }
   };
 
   const handleNextClick = async () => {

@@ -38,17 +38,27 @@ function EpisodePage() {
   const { name, air_date, episode, characters } = episodeInfo;
 
   return (
-    <>
-      <div>{name}</div>
-      <div>{air_date}</div>
-      <div>{episode}</div>
-      <div>
-        {characters &&
-          characters.map((character, index) => (
-            <EpisodeCharacters character={character} key={index} />
-          ))}
+    <div className="episode-page">
+      <h1 className="episode-name">{name}</h1>
+      <div className="episode-date">{air_date}</div>
+      <div className="season-episode-ctr">
+        {episode && (
+          <>
+            <div className="season">Season {episode.slice(1, 3)}</div>
+            <div className="episode">Episode {episode.slice(4)}</div>
+          </>
+        )}
       </div>
-    </>
+      <div className="episode-characters-label">Characters:</div>
+      <div className="episode-characters-outer-ctr">
+        <div className="episode-characters-ctr">
+          {characters &&
+            characters.map((character, index) => (
+              <EpisodeCharacters character={character} key={index} />
+            ))}
+        </div>
+      </div>
+    </div>
   );
 }
 

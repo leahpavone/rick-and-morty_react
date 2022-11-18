@@ -1,6 +1,4 @@
 function SearchedCard({ character, identities }) {
-  // console.log(character);
-
   return (
     <div className="searched-card-ctr">
       <img

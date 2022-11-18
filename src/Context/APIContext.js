@@ -9,6 +9,7 @@ export const APIProvider = ({ children }) => {
   const [characterListInfo, setCharacterListInfo] = useState(null);
   const [pageNumber, setPageNumber] = useState(1);
   const [pages, setPages] = useState([]);
+  const [filter, setFilter] = useState("");
 
   const baseURL = "https://rickandmortyapi.com/api/";
 
@@ -24,9 +25,11 @@ export const APIProvider = ({ children }) => {
       const [, ...result] = Array(data.info.pages + 1).keys();
       setPages(result);
       setPageNumber(result[0]);
+      // setIsFiltered(false);
       setIsLoading(false);
     } catch (error) {
       console.log(error.message);
+      // setIsFiltered(false);
       setIsLoading(false);
     }
   };
@@ -50,7 +53,9 @@ export const APIProvider = ({ children }) => {
         setPages,
         pageNumber,
         setPageNumber,
-        baseURL
+        baseURL,
+        filter,
+        setFilter
       }}
     >
       {children}
