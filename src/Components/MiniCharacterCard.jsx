@@ -1,14 +1,10 @@
 function MiniCharacterCard({ character, identities }) {
+  const { name, image } = character;
   return (
-    // < className="mini-character-card-container">
-    <>
-      <img
-        src={character.image}
-        alt={character.name}
-        className="mini-character-card-img"
-      />
-      <p className="mini-character-card-name">{character.name}</p>
-    </>
+    <div className="mini-character-card-container">
+      <img src={image} alt={name} className="mini-character-card-img" />
+      <p className="mini-character-card-name">{name}</p>
+    </div>
   );
 }
 

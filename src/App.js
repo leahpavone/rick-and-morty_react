@@ -1,9 +1,9 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { APIProvider } from "./Context/APIContext";
 import Home from "./Pages/Home";
-import Character from "./Pages/Character";
-import Episode from "./Pages/Episode";
-import Locations from "./Pages/Locations";
+import CharacterPage from "./Pages/CharacterPage";
+import EpisodePage from "./Pages/EpisodePage";
+import LocationPage from "./Pages/LocationPage";
 
 function App() {
   return (
@@ -12,9 +12,9 @@ function App() {
         <Router>
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/character/:id" element={<Character />} />
-            <Route path="/episode/:episodeId" element={<Episode />} />
-            <Route path="/locations/locationId" element={<Locations />} />
+            <Route path="/character/:id" element={<CharacterPage />} />
+            <Route path="/episode/:id" element={<EpisodePage />} />
+            <Route path="/location/:id" element={<LocationPage />} />
           </Routes>
         </Router>
       </APIProvider>

@@ -331,10 +331,11 @@ code {
 .character-card-episodes-outer-ctr {
   height: 100%;
   width: 100%;
+  padding: 10px 0;
 }
 
 .character-card-episodes-ctr {
-  height: 75px;
+  height: 150px;
   width: fit-content;
   overflow-y: scroll;
 }
@@ -342,6 +343,7 @@ code {
 .character-card-episodes {
   display: flex;
   flex-direction: column;
+  gap: 8px;
 }
 .character-card-episode {
 }
@@ -397,3 +399,12 @@ code {
 }
 
 /* ! ============================ EPISODE PAGE */
+
+.episode-link,
+.location-link {
+  color: #dfdfdf;
+}
+
+.residents-ctr {
+  display: flex;
+}

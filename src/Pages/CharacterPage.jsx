@@ -1,13 +1,17 @@
 import { useState, useContext, useEffect } from "react";
-// import CharacterCard from "../Components/CharacterCard";
 import APIContext from "../Context/APIContext";
 import axios from "axios";
 import { useParams, Link } from "react-router-dom";
+import Episodes from "../Components/Episodes";
+import Location from "../Components/Location";
+import Origin from "../Components/Origin";
 
 function Character({ character, identities }) {
   const [pageData, setPageData] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-  const [episodeData, setEpisodeData] = useState("");
+  const [episodes, setEpisodes] = useState([]);
+  const [characterOrigin, setCharacterOrigin] = useState("");
+  const [characterLocation, setCharacterLocation] = useState("");
 
   const { id } = useParams();
 
@@ -18,8 +22,11 @@ function Character({ character, identities }) {
     try {
       const response = await axios.get(baseURL + `character/${id}`);
       const data = await response.data;
-      console.log(data);
+      // console.log(data);
       setPageData(data);
+      setEpisodes(data.episode);
+      setCharacterOrigin(data.origin);
+      setCharacterLocation(data.location);
       setIsLoading(false);
     } catch (error) {
       console.log(error.message);
@@ -27,43 +34,15 @@ function Character({ character, identities }) {
     }
   };
 
-  console.log(pageData);
-
-  const {
-    gender,
-    image,
-    name,
-    species,
-    status,
-    type,
-    location,
-    origin,
-    episode
-  } = pageData;
-
-  const fetchEpisodeData = async () => {
-    setIsLoading(true);
-    try {
-      const response = await axios.get(baseURL + `episode/${id}`);
-      const data = await response.data;
-      console.log(data);
-      setEpisodeData(data);
-      setIsLoading(false);
-    } catch (error) {
-      console.log(error.message);
-      setIsLoading(false);
-    }
-  };
-
-  const handleEpisodeClick = () => {
-    fetchEpisodeData();
-  };
+  const { gender, image, name, species, status, type } = pageData;
 
   useEffect(() => {
     fetchCharacterPage();
-
-    // fetchEpisodeData();
   }, []);
+
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <div className="character-card-outer-ctr">
@@ -107,47 +86,28 @@ function Character({ character, identities }) {
                 </div>
               )}
 
-              {origin && (
+              {characterOrigin && (
                 <div className="character-card-detail-link-ctr">
                   <div className="character-card-detail-label">Origin: </div>
-                  <div className="character-card-origin-name-text">
-                    {origin.name}
-                  </div>
-                  <div className="character-card-origin-link">{origin.url}</div>
+                  <Origin characterOrigin={characterOrigin} />
                 </div>
               )}
 
-              {location && (
+              {characterLocation && (
                 <div className="character-card-detail-link-ctr">
                   <div className="character-card-detail-label">Location: </div>
-
-                  <div>
-                    <div className="character-card-location-name-text">
-                      {location.name}
-                    </div>
-                    <div className="character-card-location-link">
-                      {location.url}
-                    </div>
-                  </div>
+                  <Location characterLocation={characterLocation} />
                 </div>
               )}
             </div>
           </div>
-          {episode && (
+          {episodes && (
             <div className="character-card-episodes-outer-ctr">
               <p className="character-card-detail-label">Episodes:</p>
               <div className="character-card-episodes-ctr">
                 <div className="character-card-episodes">
-                  {episode.map((ep) => (
-                    <div key={ep.id}>
-                      <Link
-                        to={`/episode/${id}`}
-                        className="character-card-episode"
-                        onClick={handleEpisodeClick}
-                      >
-                        {ep}
-                      </Link>
-                    </div>
+                  {episodes.map((episode, index) => (
+                    <Episodes episode={episode} key={index} />
                   ))}
                 </div>
               </div>

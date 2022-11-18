@@ -74,6 +74,9 @@ function Home() {
           </button>
         </div>
       </form>
+
+      <div className="filter-ctr"></div>
+
       {!searched ? (
         <>
           <div className="characters-container">
@@ -82,8 +85,6 @@ function Home() {
                 to={`/character/${character.id}`}
                 key={character.id}
                 className="mini-character-card-ctr"
-                character={character.name}
-                identities={identities}
               >
                 <MiniCharacterCard
                   identities={identities}
@@ -92,21 +93,14 @@ function Home() {
               </Link>
             ))}
           </div>
-          <Pagination
-            characterList={characterList}
-            characterListInfo={characterListInfo}
-          />
+          <Pagination />
         </>
       ) : (
         // AFTER SEARCH DO THIS BELOW
         <>
           <>
             <div className="result">
-              <Link
-                to={`/character/${character.id}`}
-                character={character.name}
-                identities={identities}
-              >
+              <Link to={`/character/${character.id}`}>
                 <SearchedCard identities={identities} character={character} />
               </Link>
             </div>

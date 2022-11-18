@@ -4,9 +4,9 @@ import axios from "axios";
 const APIContext = createContext();
 
 export const APIProvider = ({ children }) => {
+  const [isLoading, setIsLoading] = useState(false);
   const [characterList, setCharacterList] = useState([]);
   const [characterListInfo, setCharacterListInfo] = useState(null);
-  const [isLoading, setIsLoading] = useState(false);
   const [pageNumber, setPageNumber] = useState(1);
   const [pages, setPages] = useState([]);
 
@@ -32,11 +32,7 @@ export const APIProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    try {
-      fetchAllCharacters();
-    } catch (error) {
-      console.log(error.message);
-    }
+    fetchAllCharacters();
   }, []);
 
   if (isLoading) {
