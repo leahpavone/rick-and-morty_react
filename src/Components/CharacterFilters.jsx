@@ -1,19 +1,25 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState, useRef } from "react";
 import axios from "axios";
 import APIContext from "../Context/APIContext";
+import FilterIcon from "../assets/filter.svg";
 
 function CharacterFilters() {
   const [isLoading, setIsLoading] = useState(false);
 
   const {
     baseURL,
-    characterList,
     setCharacterList,
     pageNumber,
     setPageNumber,
     setPages,
-    setFilter
+    filter,
+    setFilter,
+    fetchAllCharacters
   } = useContext(APIContext);
+
+  useEffect(() => {}, []);
+
+  const select = useRef();
 
   const filterCharacters = async (e) => {
     setIsLoading(true);
@@ -80,7 +86,6 @@ function CharacterFilters() {
       }
 
       setIsLoading(false);
-      e.currentValue = e.target.value;
     } catch (error) {
       console.log(error.message);
       setIsLoading(false);
@@ -88,10 +93,21 @@ function CharacterFilters() {
     console.log("filtered characters");
   };
 
+  const handleClear = () => {
+    fetchAllCharacters();
+    setFilter(null);
+    select.current.value = "";
+  };
+
   return (
     <div className="filter">
-      <select onChange={filterCharacters} className="filter-select">
-        <option value="default" className="filter-option">
+      <select
+        ref={select}
+        defaultValue=""
+        onChange={filterCharacters}
+        className="filter-select"
+      >
+        <option value="" className="filter-option" disabled>
           Filter
         </option>
         <option value="female" className="filter-option">
@@ -110,6 +126,11 @@ function CharacterFilters() {
           dead
         </option>
       </select>
+      {filter && (
+        <button className="filter-clear-btn" onClick={handleClear}>
+          clear
+        </button>
+      )}
     </div>
   );
 }

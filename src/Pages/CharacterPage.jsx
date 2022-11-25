@@ -5,6 +5,7 @@ import { useParams, Link } from "react-router-dom";
 import Episodes from "../Components/Episodes";
 import Location from "../Components/Location";
 import Origin from "../Components/Origin";
+import { LoaderPortal } from "../Components/Loader";
 
 function Character({ character, identities }) {
   const [pageData, setPageData] = useState([]);
@@ -36,74 +37,86 @@ function Character({ character, identities }) {
 
   const { gender, image, name, species, status, type } = pageData;
 
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     if (isLoading) {
+  //       console.log("delayed 2 seconds");
+  //       setIsLoading(false);
+  //     }
+  //   }, 1000);
+  //   fetchCharacterPage();
+  // }, []);
+
   useEffect(() => {
     fetchCharacterPage();
   }, []);
 
   if (isLoading) {
+    // return <LoaderPortal />;
     return <div>Loading...</div>;
   }
 
   return (
-    <div className="character-card-outer-ctr">
-      <div className="character-card-ctr">
-        <div className="character-card">
-          {name && (
-            <div className="character-card-name-ctr">
-              <div className="character-card-name">{name}</div>
-            </div>
-          )}
-          <div className="character-card-inner-ctr">
-            <div className="character-card-img-ctr">
-              <img src={image} alt={name} className="character-card-img" />
-            </div>
-            <div className="character-card-details-ctr">
-              {status && (
-                <div className="character-card-detail-ctr">
-                  <div className="character-card-detail-label">Status:</div>
-                  <div className="character-card-text">{status}</div>
-                </div>
-              )}
-
-              {species && (
-                <div className="character-card-detail-ctr">
-                  <div className="character-card-detail-label">Species:</div>
-                  <div className="character-card-text">{species}</div>
-                </div>
-              )}
-
-              {type && (
-                <div className="character-card-detail-ctr">
-                  <div className="character-card-detail-label">Type:</div>
-                  <div className="character-card-text">{type}</div>
-                </div>
-              )}
-
-              {gender && (
-                <div className="character-card-detail-ctr">
-                  <div className="character-card-detail-label">Gender:</div>
-                  <div className="character-card-text">{gender}</div>
-                </div>
-              )}
-
-              {characterOrigin && (
-                <div className="character-card-detail-link-ctr">
-                  <div className="character-card-detail-label">Origin: </div>
-                  <Origin characterOrigin={characterOrigin} />
-                </div>
-              )}
-
-              {characterLocation && (
-                <div className="character-card-detail-link-ctr">
-                  <div className="character-card-detail-label">Location: </div>
-                  <Location characterLocation={characterLocation} />
-                </div>
-              )}
-            </div>
+    <div className="character-page">
+      <div className="character-card">
+        <div className="character-card-name-img-ctr">
+          {name && <div className="character-card-name">{name}</div>}
+          <div className="character-card-img-ctr">
+            <img src={image} alt={name} className="character-card-img" />
           </div>
+        </div>
+
+        <div className="all-details-ctr">
+          <div className="character-card-details-ctr">
+            {status && (
+              <div className="character-card-detail-ctr">
+                <div className="character-card-detail-label">Status:</div>
+                <div className="character-card-text">{status}</div>
+              </div>
+            )}
+
+            {species && (
+              <div className="character-card-detail-ctr">
+                <div className="character-card-detail-label">Species:</div>
+                <div className="character-card-text">{species}</div>
+              </div>
+            )}
+
+            {type && (
+              <div className="character-card-detail-ctr">
+                <div className="character-card-detail-label">Type:</div>
+                <div className="character-card-text">{type}</div>
+              </div>
+            )}
+
+            {gender && (
+              <div className="character-card-detail-ctr">
+                <div className="character-card-detail-label">Gender:</div>
+                <div className="character-card-text">{gender}</div>
+              </div>
+            )}
+
+            {characterOrigin && (
+              <div className="character-card-detail-link-ctr">
+                <div className="character-card-detail-label">Origin: </div>
+                <Origin characterOrigin={characterOrigin} />
+              </div>
+            )}
+
+            {characterLocation && (
+              <div className="character-card-detail-link-ctr">
+                <div className="character-card-detail-label">Location: </div>
+                <Location characterLocation={characterLocation} />
+              </div>
+            )}
+          </div>
+
           {episodes && (
-            <div className="character-card-episodes-outer-ctr">
-              <p className="character-card-detail-label">Episodes:</p>
+            <div className="character-episodes">
+              <p className="character-card-episode-label">
+                <div>Episodes:</div>
+                <div>{episodes.length}</div>
+              </p>
               <div className="character-card-episodes-ctr">
                 <div className="character-card-episodes">
                   {episodes.map((episode, index) => (
@@ -120,3 +133,8 @@ function Character({ character, identities }) {
 }
 
 export default Character;
+
+// use effects
+// combine components
+// pagination
+//idea for final project

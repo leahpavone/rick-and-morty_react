@@ -1,4 +1,4 @@
-function MiniCharacterCard({ character, identities }) {
+function MiniCharacterCard({ character }) {
   const { name, image } = character;
   return (
     <div className="mini-character-card-container">

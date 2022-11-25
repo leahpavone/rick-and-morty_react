@@ -1,8 +1,8 @@
 import { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import APIContext from "../Context/APIContext";
-import rightArrowIcon from "../assets/right-arrow.png";
-import leftArrowIcon from "../assets/left-arrow.png";
+import { FaArrowRight } from "react-icons/fa";
+import { FaArrowLeft } from "react-icons/fa";
 
 function Pagination() {
   const [prevButtonDisabled, setPrevButtonDisabled] = useState(false);
@@ -12,6 +12,7 @@ function Pagination() {
     pageNumber,
     setPageNumber,
     pages,
+    setPages,
     setCharacterList,
     baseURL,
     filter
@@ -25,7 +26,7 @@ function Pagination() {
       const data = await response.data;
       setPageNumber(buttonValue);
       setCharacterList(data.results);
-      console.log(data);
+      // console.log(data);
     } else if (filter === "female") {
       const response = await axios.get(
         baseURL + `character?page=${buttonValue}&gender=female`
@@ -33,7 +34,7 @@ function Pagination() {
       const data = await response.data;
       setPageNumber(buttonValue);
       setCharacterList(data.results);
-      console.log(data);
+      // console.log(data);
     } else if (filter === "genderless") {
       const response = await axios.get(
         baseURL + `character?page=${buttonValue}&gender=genderless`
@@ -41,7 +42,7 @@ function Pagination() {
       const data = await response.data;
       setPageNumber(buttonValue);
       setCharacterList(data.results);
-      console.log(data);
+      // console.log(data);
     } else if (filter === "alive") {
       const response = await axios.get(
         baseURL + `character?page=${buttonValue}&status=alive`
@@ -49,7 +50,7 @@ function Pagination() {
       const data = await response.data;
       setPageNumber(buttonValue);
       setCharacterList(data.results);
-      console.log(data);
+      // console.log(data);
     } else if (filter === "dead") {
       const response = await axios.get(
         baseURL + `character?page=${buttonValue}&status=dead`
@@ -57,7 +58,7 @@ function Pagination() {
       const data = await response.data;
       setPageNumber(buttonValue);
       setCharacterList(data.results);
-      console.log(data);
+      // console.log(data);
     } else {
       const response = await axios.get(
         baseURL + `character?page=${buttonValue}`
@@ -65,7 +66,7 @@ function Pagination() {
       const data = await response.data;
       setPageNumber(buttonValue);
       setCharacterList(data.results);
-      console.log(data);
+      // console.log(data);
     }
   };
 
@@ -93,6 +94,11 @@ function Pagination() {
   useEffect(() => {
     if (pageNumber === 1) {
       setPrevButtonDisabled(true);
+      // const midPages = pages.slice(1, pages.length - 2);
+      // console.log(pages.slice(1, pages.length - 2));
+      // setPages(pages.slice(0, 1));
+      console.log(pages);
+      // setCurrentPage(pageNumber);
     } else {
       setPrevButtonDisabled(false);
     }
@@ -118,28 +124,22 @@ function Pagination() {
             </button>
           ))}
       </div>
+
       <div className="prev-next-btn-ctr">
         <button
           className="arrow-btn"
           onClick={handlePrevClick}
           disabled={prevButtonDisabled}
         >
-          <img
-            className="arrow-btn-img"
-            src={leftArrowIcon}
-            alt="left arrow icon"
-          />
+          <FaArrowLeft className="arrow-btn-img" />
         </button>
+
         <button
           className="arrow-btn"
           onClick={handleNextClick}
           disabled={nextButtonDisabled}
         >
-          <img
-            className="arrow-btn-img"
-            src={rightArrowIcon}
-            alt="right arrow icon"
-          />
+          <FaArrowRight className="arrow-btn-img" />
         </button>
       </div>
     </div>
