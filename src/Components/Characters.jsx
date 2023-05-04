@@ -1,6 +1,6 @@
-import { useState, useEffect } from "react";
-import axios from "axios";
-import { Link } from "react-router-dom";
+import { useState, useEffect } from 'react';
+import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 function Characters({ character }) {
   const [characterData, setCharacterData] = useState([]);
@@ -12,7 +12,6 @@ function Characters({ character }) {
       try {
         const response = await axios.get(character);
         const data = await response.data;
-        // console.log(data);
         setCharacterData(data);
         setIsLoading(false);
       } catch (error) {
@@ -20,7 +19,7 @@ function Characters({ character }) {
         setIsLoading(false);
       }
     };
-    console.log("hi");
+    console.log('hi');
 
     fetchCharacterData();
   }, [character]);
@@ -32,9 +31,9 @@ function Characters({ character }) {
   }
 
   return (
-    <Link to={`/character/${id}`} className="episode-character-card-container">
-      <img src={image} alt={name} className="episode-character-card-img" />
-      <p className="episode-character-card-name">{name}</p>
+    <Link to={`/character/${id}`} className='episode-character-card-container'>
+      <img src={image} alt={name} className='episode-character-card-img' />
+      <p className='episode-character-card-name'>{name}</p>
     </Link>
   );
 }

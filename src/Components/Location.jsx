@@ -1,6 +1,6 @@
-import { useState, useContext, useEffect } from "react";
-import axios from "axios";
-import { Link } from "react-router-dom";
+import { useState, useEffect } from 'react';
+import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 function Location({ characterLocation }) {
   const [locationData, setLocationData] = useState([]);
@@ -28,10 +28,10 @@ function Location({ characterLocation }) {
 
   return (
     <div>
-      {name === "unknown" ? (
-        <div className="unknown-text">unknown</div>
+      {name === 'unknown' ? (
+        <div className='unknown-text'>unknown</div>
       ) : (
-        <Link className="location-link" to={`/location/${locationData.id}`}>
+        <Link className='location-link' to={`/location/${locationData.id}`}>
           {name}
         </Link>
       )}

@@ -1,6 +1,6 @@
-import { useState, useContext, useEffect } from "react";
-import axios from "axios";
-import { Link } from "react-router-dom";
+import { useState, useEffect } from 'react';
+import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 function Origin({ characterOrigin }) {
   const [originData, setOriginData] = useState([]);
@@ -32,10 +32,10 @@ function Origin({ characterOrigin }) {
 
   return (
     <div>
-      {name === "unknown" ? (
-        <div className="unknown-text">unknown</div>
+      {name === 'unknown' ? (
+        <div className='unknown-text'>unknown</div>
       ) : (
-        <Link className="location-link" to={`/location/${originData.id}`}>
+        <Link className='location-link' to={`/location/${originData.id}`}>
           {name}
         </Link>
       )}

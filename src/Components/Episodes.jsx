@@ -1,6 +1,6 @@
-import { useState, useContext, useEffect } from "react";
-import axios from "axios";
-import { Link } from "react-router-dom";
+import { useState, useEffect } from 'react';
+import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 function Episodes({ episode }) {
   const [episodeData, setEpisodeData] = useState([]);
@@ -11,7 +11,6 @@ function Episodes({ episode }) {
     try {
       const response = await axios.get(episode);
       const data = await response.data;
-      // console.log(data);
       setEpisodeData(data);
       setIsLoading(false);
     } catch (error) {
@@ -26,7 +25,7 @@ function Episodes({ episode }) {
 
   return (
     <>
-      <Link className="episode-link" to={`/episode/${episodeData.id}`}>
+      <Link className='episode-link' to={`/episode/${episodeData.id}`}>
         {episodeData.name}
       </Link>
     </>
