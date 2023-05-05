@@ -1,20 +1,20 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { APIProvider } from "./Context/APIContext";
-import Home from "./Pages/Home";
-import CharacterPage from "./Pages/CharacterPage";
-import EpisodePage from "./Pages/EpisodePage";
-import LocationPage from "./Pages/LocationPage";
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { APIProvider } from './Context/APIContext';
+import Home from './Pages/Home';
+import CharacterPage from './Pages/CharacterPage';
+import EpisodePage from './Pages/EpisodePage';
+import LocationPage from './Pages/LocationPage';
 
 function App() {
   return (
     <>
       <APIProvider>
-        <Router>
+        <Router basename={process.env.PUBLIC_URL}>
           <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/character/:id" element={<CharacterPage />} />
-            <Route path="/episode/:id" element={<EpisodePage />} />
-            <Route path="/location/:id" element={<LocationPage />} />
+            <Route path='/' element={<Home />} />
+            <Route path='/character/:id' element={<CharacterPage />} />
+            <Route path='/episode/:id' element={<EpisodePage />} />
+            <Route path='/location/:id' element={<LocationPage />} />
           </Routes>
         </Router>
       </APIProvider>
