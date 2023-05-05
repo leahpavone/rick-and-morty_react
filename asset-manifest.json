@@ -1,0 +1,38 @@
+{
+  "files": {
+    "main.css": "/rick-and-morty_react/static/css/main.4e7a2276.css",
+    "main.js": "/rick-and-morty_react/static/js/main.b2be5481.js",
+    "static/media/star-background.jpg": "/rick-and-morty_react/static/media/star-background.c44ed04c57064dd1b4d5.jpg",
+    "static/media/portal-2.gif": "/rick-and-morty_react/static/media/portal-2.aeba5f348bebb0717a11.gif",
+    "static/media/beth-2.gif": "/rick-and-morty_react/static/media/beth-2.0a7f63d77dfe8f17c8db.gif",
+    "static/media/rick-3.gif": "/rick-and-morty_react/static/media/rick-3.f241dbfd88e3138ca169.gif",
+    "static/media/rick-8.gif": "/rick-and-morty_react/static/media/rick-8.c2ea1bec5776ffb4a716.gif",
+    "static/media/rick-6.gif": "/rick-and-morty_react/static/media/rick-6.246dcf694ddcd542073f.gif",
+    "static/media/smoke.gif": "/rick-and-morty_react/static/media/smoke.448265b9525dfa43590e.gif",
+    "static/media/summer-1.gif": "/rick-and-morty_react/static/media/summer-1.f38aaccfc33c3e6e48ce.gif",
+    "static/media/rick-5.gif": "/rick-and-morty_react/static/media/rick-5.97035bd6ee4e1e4c2dff.gif",
+    "static/media/rick-morty-color-flip.gif": "/rick-and-morty_react/static/media/rick-morty-color-flip.81ed13607cc04fecca1e.gif",
+    "static/media/morty-1.gif": "/rick-and-morty_react/static/media/morty-1.9ad83272b5854f58af31.gif",
+    "static/media/rick-2.gif": "/rick-and-morty_react/static/media/rick-2.6ea926050d1aefae5c18.gif",
+    "static/media/morty-2.gif": "/rick-and-morty_react/static/media/morty-2.170c954391d5d6787f7a.gif",
+    "static/media/rick-4.gif": "/rick-and-morty_react/static/media/rick-4.21000b26bcfc980d3b84.gif",
+    "static/media/jerry-2.gif": "/rick-and-morty_react/static/media/jerry-2.b23d21032c0e3a7654ec.gif",
+    "static/media/rick-1.gif": "/rick-and-morty_react/static/media/rick-1.e399a5f044273343b818.gif",
+    "static/media/jerry-1.gif": "/rick-and-morty_react/static/media/jerry-1.28e72d40864bd9d5df04.gif",
+    "static/media/summer-2.gif": "/rick-and-morty_react/static/media/summer-2.3e1bcf539be8df09fefb.gif",
+    "static/media/rick-9.gif": "/rick-and-morty_react/static/media/rick-9.636f22b66812eb00451a.gif",
+    "static/media/beth-1.gif": "/rick-and-morty_react/static/media/beth-1.e4e018a6b3861e475910.gif",
+    "static/media/jerry-3.gif": "/rick-and-morty_react/static/media/jerry-3.231ca1b8dfccb2644be7.gif",
+    "static/media/pain.gif": "/rick-and-morty_react/static/media/pain.2b0fa2555590a2778ce1.gif",
+    "static/media/pickle-rick-1.gif": "/rick-and-morty_react/static/media/pickle-rick-1.c15c4438d4ecfb0ac30c.gif",
+    "static/media/rick-7.gif": "/rick-and-morty_react/static/media/rick-7.a12ace67cca1e542cee3.gif",
+    "index.html": "/rick-and-morty_react/index.html",
+    "static/media/search-icon.svg": "/rick-and-morty_react/static/media/search-icon.58cbfe9ab424542cd78618d65aaba42f.svg",
+    "main.4e7a2276.css.map": "/rick-and-morty_react/static/css/main.4e7a2276.css.map",
+    "main.b2be5481.js.map": "/rick-and-morty_react/static/js/main.b2be5481.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.4e7a2276.css",
+    "static/js/main.b2be5481.js"
+  ]
+}
