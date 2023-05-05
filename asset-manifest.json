@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/rick-and-morty_react/static/css/main.4e7a2276.css",
-    "main.js": "/rick-and-morty_react/static/js/main.4d09bbf0.js",
+    "main.js": "/rick-and-morty_react/static/js/main.e7fc4df8.js",
     "static/media/star-background.jpg": "/rick-and-morty_react/static/media/star-background.c44ed04c57064dd1b4d5.jpg",
     "static/media/portal-2.gif": "/rick-and-morty_react/static/media/portal-2.aeba5f348bebb0717a11.gif",
     "static/media/beth-2.gif": "/rick-and-morty_react/static/media/beth-2.0a7f63d77dfe8f17c8db.gif",
@@ -29,10 +29,10 @@
     "index.html": "/rick-and-morty_react/index.html",
     "static/media/search-icon.svg": "/rick-and-morty_react/static/media/search-icon.58cbfe9ab424542cd78618d65aaba42f.svg",
     "main.4e7a2276.css.map": "/rick-and-morty_react/static/css/main.4e7a2276.css.map",
-    "main.4d09bbf0.js.map": "/rick-and-morty_react/static/js/main.4d09bbf0.js.map"
+    "main.e7fc4df8.js.map": "/rick-and-morty_react/static/js/main.e7fc4df8.js.map"
   },
   "entrypoints": [
     "static/css/main.4e7a2276.css",
-    "static/js/main.4d09bbf0.js"
+    "static/js/main.e7fc4df8.js"
   ]
 }
