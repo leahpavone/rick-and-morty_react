@@ -11,7 +11,7 @@ function App() {
       <APIProvider>
         <Router>
           <Routes>
-            <Route path='/' element={<Home />} />
+            <Route exact path='/' element={<Home />} />
             <Route path='/character/:id' element={<CharacterPage />} />
             <Route path='/episode/:id' element={<EpisodePage />} />
             <Route path='/location/:id' element={<LocationPage />} />
