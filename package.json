@@ -33,7 +33,7 @@
       "react-app/jest"
     ]
   },
-  "homepage": "https://leahpavone.github.io/rick-and-morty_react",
+  "homepage": "https://leahpavone.github.io/rick-and-morty_react/",
   "browserslist": {
     "production": [
       ">0.2%",
