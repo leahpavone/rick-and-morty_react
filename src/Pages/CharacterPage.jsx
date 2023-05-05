@@ -122,8 +122,3 @@ function Character({ character, identities }) {
 }
 
 export default Character;
-
-// use effects
-// combine components
-// pagination
-//idea for final project
