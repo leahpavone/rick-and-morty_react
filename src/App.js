@@ -9,7 +9,8 @@ function App() {
   return (
     <>
       <APIProvider>
-        <Router basename={process.env.PUBLIC_URL}>
+        <Router
+          basename={'http://www.leahpavone.github.io/rick-and-morty_react/'}>
           <Routes>
             <Route path='/' element={<Home />} />
             <Route path='/character/:id' element={<CharacterPage />} />
